@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">tigren_question_form.question_form_data_source</item>
+            <item name="deps" xsi:type="string">tigren_question_form.question_form_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">Question Form</item>
+        <!-- <item name="template" xsi:type="string">templates/form/collapsible</item>
+        <item name="componentType" xsi:type="string">fieldset</item> -->
+        <item name="layout" xsi:type="array">
+            <item name="type" xsi:type="string">tabs</item>
+        </item>
+
+         <item name="buttons" xsi:type="array">
+            <item name="back" xsi:type="string">Tigren\QuestionModule\Block\Adminhtml\Edit\BackButton</item>
+            <item name="save" xsi:type="string">Tigren\QuestionModule\Block\Adminhtml\Edit\SaveButton</item>
+        </item>
+    </argument>
+    <!-- <settings>
+        <buttons>
+            <button name="save" class="Tigren\QuestionModule\Block\Adminhtml\Edit\SaveButton"/>
+            <button name="back" class="Tigren\QuestionModule\Block\Adminhtml\Edit\BackButton"/>
+        </buttons>
+        <namespace>tigren_question_form</namespace>
+        <dataScope>data</dataScope>
+        <deps>
+            <dep>tigren_question_form.question_form_data_source</dep>
+        </deps>
+    </settings> -->
+    <dataSource name="question_form_data_source">
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+        <settings>
+            <submitUrl path="tigren/question/save"/>
+        </settings>
+        <dataProvider class="Tigren\QuestionModule\Model\Block\DataProvider" name="question_form_data_source">
+            <settings>
+                <requestFieldName>id</requestFieldName> 
+                <primaryFieldName>id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <!-- <fieldset name="tigren_question">
+        <settings>
+            <label/>
+        </settings> 
+        <field name="tigren_question" sortOrder="20" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">question</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Question</label>
+                <dataScope>question</dataScope>
+            </settings>
+        </field>
+        <field name="answer" sortOrder="21" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">answer</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Answer</label>
+                <dataScope>answer</dataScope>
+            </settings>
+        </field>
+        <field name="name" sortOrder="22" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">name</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Name</label>
+                <dataScope>name</dataScope>
+            </settings>
+        </field>
+        <field name="email" sortOrder="23" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">email</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Email</label>
+                <dataScope>email</dataScope>
+            </settings>
+        </field>
+    </fieldset> -->
+    <fieldset name="question">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="collapsible" xsi:type="boolean">false</item>
+                <item name="label" xsi:type="string" translate="true">Question Form</item>
+                <item name="sortOrder" xsi:type="number">20</item>
+            </item>
+        </argument>
+        <field name="question">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Question</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">tigren_question</item>
+                    <item name="dataScope" xsi:type="string">question</item>
+                </item>
+            </argument>
+        </field>
+        <field name="answer">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Answer</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">tigren_question</item>
+                    <item name="dataScope" xsi:type="string">answer</item>
+                </item>
+            </argument>
+        </field>
+        <field name="name">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Name</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <!-- <item name="disabled" xsi:type="boolean">true</item> -->
+                    <item name="source" xsi:type="string">tigren_question</item>
+                    <item name="dataScope" xsi:type="string">name</item>
+                </item>
+            </argument>
+        </field>
+        <field name="email">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Email</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <!-- <item name="disabled" xsi:type="boolean">true</item> -->
+                    <item name="source" xsi:type="string">tigren_question</item>
+                    <item name="dataScope" xsi:type="string">email</item>
+                </item>
+            </argument>
+        </field>
+    </fieldset>
+</form>

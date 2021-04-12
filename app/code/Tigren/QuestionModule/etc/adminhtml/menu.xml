@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+      <add id="Tigren_QuestionModule::questions" title="Question" translate="title" module="Tigren_QuestionModule" parent="Magento_Backend::content" sortOrder="50" dependsOnModule="Tigren_QuestionModule" resource="Tigren_QuestionModule::questions"/>
+
+      <add id="Tigren_QuestionModule::questions_customers" title="Customer Question" translate="title" module="Tigren_QuestionModule" parent="Tigren_QuestionModule::questions" sortOrder="10" dependsOnModule="Tigren_QuestionModule" action="tigren/question" resource="Tigren_QuestionModule::questions"/>
+    </menu>
+</config>

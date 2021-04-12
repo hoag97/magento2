@@ -1,0 +1,46 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+    <virtualType name="QuestionsGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">Tigren\QuestionModule\Model\ResourceModel\Question\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">QuestionsGirdFilterPool</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="QuestionsGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">Tigren\QuestionModule\Model\ResourceModel\Question\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">QuestionsGirdFilterPool</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="QuestionsGirdFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+        <arguments>
+            <argument name="appliers" xsi:type="array">
+                <item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+                <item name="fulltext" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="question_listing_data_source" xsi:type="string">Tigren\QuestionModule\Model\ResourceModel\Question\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="question_form_data_source" xsi:type="string">Tigren\QuestionModule\Model\ResourceModel\Question\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="Tigren\QuestionModule\Model\ResourceModel\Question\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">tigren_question</argument>
+            <argument name="resourceModel" xsi:type="string">Tigren\QuestionModule\Model\ResourceModel\Question</argument>
+        </arguments>
+    </virtualType>
+</config>

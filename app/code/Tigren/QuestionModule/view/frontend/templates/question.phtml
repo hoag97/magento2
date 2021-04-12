@@ -1,0 +1,33 @@
+<?php
+    $questions = $block->GetQuestion();
+?>
+
+<style>
+table {  font-family: arial, sans-serif;  border-collapse: collapse;  width: 100%;  margin-top: 30px;}
+td, th {  border: 1px solid #dddddd;  text-align: left;  padding: 8px;  }
+
+
+</style>
+
+<table>
+  <tr>
+        <th class="question-id"></th>
+        <th class="question">Question</th>
+        <th class="answer">Answer</th>
+        <th class="cus_name">CustomerName</th>
+        <th class="create_at">Create_At</th>
+        
+  </tr>
+    <?php
+    $count = 1;
+        foreach ($questions as $value){
+            echo '<tr>
+                    <td>'.$count++.'</td>
+                    <td>'.$value->getQuestion().'</td>
+                    <td>'.$value->getAnswer().'</td>
+                    <td>'.$value->getName().'</td>
+                    <td>'.$value->getCreate_at().'</td>
+                  </tr>';
+        }
+    ?>
+</table>
